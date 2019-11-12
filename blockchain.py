@@ -64,5 +64,3 @@ class Blockchain(object):
         #We have to be sure that our Dict is corted
         block_string = json.dumps(block, sort_keys = True).encode()
         return hashlib.sha256(block_string).hexdigest()
-        
-print('run blockchain\n')
