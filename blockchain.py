@@ -1,3 +1,7 @@
+import hashlib
+import json
+from time import time
+
 class Blockchain(object):
     def __init__(self):
         self.chain = []
@@ -15,13 +19,13 @@ class Blockchain(object):
         :param amount: <int> amount
         :return: <int> block index, that saves transaction data
         """
-        self.current_transactions.append(
-            {
+        self.current_transactions.append({
                 'sender': sender,
-                'recipient': recipient,
+                'recipient': recipiet,
                 'amount': amount
-            }
-        )
+            })
+
+        return self.last_block['index'] + 1
 
     @staticmethod
     def hash(block):
@@ -32,3 +36,5 @@ class Blockchain(object):
     def last_block(self):
         #returns last block of a chain
         pass
+
+print('run blockchain\n')
