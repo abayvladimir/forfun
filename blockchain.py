@@ -11,8 +11,20 @@ class Blockchain(object):
         self.new_block(previous_hash = 1, proof = 100)
 
     def new_block(self, proof, previous_hash=None):
-        #Creates new Block & adds it to the chain
-        pass
+        """
+        Creates new Block & adds it to the chain
+
+        :param proof: <int> proof get from 
+        :param previous_hash: (optional) <str> Hash of prev block
+        :return: <dict> New Block
+        """
+        block = {
+            'index': len(self.chain) +1,
+            'timestamp': time(),
+            'transactions': self.current_transactions,
+            'proof': proof,
+            'previous_hash': previous_hash or self.hash(self.chain[-1]),
+        }
 
     def new_transaction(self, sender, recipient, amount):
         """
