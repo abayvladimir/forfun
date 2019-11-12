@@ -7,7 +7,10 @@ class Blockchain(object):
         self.chain = []
         self.current_transactions = []
 
-    def new_block(self):
+        #create the genesis block
+        self.new_block(previous_hash = 1, proof = 100)
+
+    def new_block(self, proof, previous_hash=None):
         #Creates new Block & adds it to the chain
         pass
 
@@ -21,7 +24,7 @@ class Blockchain(object):
         """
         self.current_transactions.append({
                 'sender': sender,
-                'recipient': recipiet,
+                'recipient': recipient,
                 'amount': amount
             })
 
